@@ -1,6 +1,13 @@
-from django.http import HttpResponse
+from django.http import JsonResponse
+import json
 
 
-# Create your views here.
-def test_view(request):
-    return HttpResponse({"key": "value"})
+# TODO: Change to link to model-service
+def detect(request):
+    if request.method == 'POST':
+        body = json.loads(request.body.decode('utf-8'))
+        url = body.get('url')
+
+        # Temporary return information for testing
+        safe = True if url == 'true' else False
+        return JsonResponse({'safe': safe})

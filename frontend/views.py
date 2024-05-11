@@ -8,6 +8,6 @@ def index(request, *args, **kwargs):
     :param request: The request for the index page.
     :param args: Any extra arguments.
     :param kwargs: Any extra keyword arguments.
-    :return:
+    :return: The rendered index page.
     """
     return render(request, "index.html")
