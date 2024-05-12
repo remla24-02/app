@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "app"
-version = "0.0.2"
+version = "0.0.3"
 description = "An AI powered URL phising detection app."
 authors = ["Rodin Haker <R.Haker@student.tudelft.nl>", "Arjan Hasami <A.Hasami@student.tudelft.nl>",
     "Nada Mouman <N.Mouman@student.tudelft.nl>", "Thijs Penning <T.J.Penning@student.tudelft.nl>"]
@@ -11,6 +11,7 @@ readme = "README.md"
 python = "^3.12"
 django = "^5.0.6"
 setuptools = "^69.5.1"
+lib-version-remla24-team02 = "^0.0.2"
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.1.0"

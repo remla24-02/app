@@ -86,6 +86,17 @@ files = [
 colors = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "lib-version-remla24-team02"
+version = "0.0.2"
+description = "A version-aware library that can can be asked for the version of the library."
+optional = false
+python-versions = "*"
+files = [
+    {file = "lib_version_remla24_team02-0.0.2-py3-none-any.whl", hash = "sha256:aaafd144fb7382f240637d069ad103bf00ed37527bf96dddb53895ef598f54c8"},
+    {file = "lib_version_remla24_team02-0.0.2.tar.gz", hash = "sha256:1e4d4dc8ccb96a78b099da7ee24ffc38308e43bb02fbef6d37210a839f05cdaa"},
+]
+
+[[package]]
 name = "mccabe"
 version = "0.7.0"
 description = "McCabe checker, plugin for flake8"
@@ -192,4 +203,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "8098138b996f51eb301df40308e3fd7c35eaf9d3e42fb74c32b24bb6f172a50b"
+content-hash = "04b435263050f922d4f0fc9f158bdc28f724b9984ea49a825230380927b23d0e"
