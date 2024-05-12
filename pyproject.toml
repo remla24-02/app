@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "app"
-version = "0.1.0"
+version = "0.0.2"
 description = "An AI powered URL phising detection app."
 authors = ["Rodin Haker <R.Haker@student.tudelft.nl>", "Arjan Hasami <A.Hasami@student.tudelft.nl>",
     "Nada Mouman <N.Mouman@student.tudelft.nl>", "Thijs Penning <T.J.Penning@student.tudelft.nl>"]
