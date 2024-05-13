@@ -18,6 +18,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            IMG=ghcr.io/${{ github.repository }}
             ghcr.io/${{ github.repository }}:${{ github.ref_name }}
             ghcr.io/${{ github.repository }}:latest
