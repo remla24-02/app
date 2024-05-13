@@ -18,7 +18,6 @@ document.getElementById("inputURL").addEventListener("keyup", function(event) {
 
 // Send a detection check request (when the submit button is clicked or via the listener)
 function sendRequest() {
-    console.log("hit")
     const inputURL = document.getElementById("inputURL").value;
 
     fetch('/service/detect', {
