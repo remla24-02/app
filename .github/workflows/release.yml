@@ -17,7 +17,7 @@ jobs:
           envkey_API_KEY: ${{ secrets.API_KEY }}
           envkey_DEBUG: True
           envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          ALLOWED_HOSTS: .localhost, 127.0.0.1, 0.0.0.0
+          ALLOWED_HOSTS: ".localhost, 127.0.0.1, 0.0.0.0"
           file_name: .env
           fail_on_empty: true
       - name: Build and Push Docker Image
