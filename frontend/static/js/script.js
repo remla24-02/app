@@ -9,7 +9,16 @@ fetch('/service/version')
     console.error('Error:', error);
 });
 
+// Add an "Enter" listener on the url input field to fire the send request method
+document.getElementById("inputURL").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+      sendRequest();
+    }
+});
+
+// Send a detection check request (when the submit button is clicked or via the listener)
 function sendRequest() {
+    console.log("hit")
     const inputURL = document.getElementById("inputURL").value;
 
     fetch('/service/detect', {
