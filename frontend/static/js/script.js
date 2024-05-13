@@ -1,7 +1,25 @@
+// Update the version displayed on the frontend
+fetch('/service/version')
+.then(response => response.json())
+.then(data => {
+    // Update the <h1> element with the received data
+    document.getElementById('app__header').textContent = 'URL Phishing Detection ' + data.version;
+})
+.catch(error => {
+    console.error('Error:', error);
+});
+
+// Add an "Enter" listener on the url input field to fire the send request method
+document.getElementById("inputURL").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+      sendRequest();
+    }
+});
+
+// Send a detection check request (when the submit button is clicked or via the listener)
 function sendRequest() {
     const inputURL = document.getElementById("inputURL").value;
 
-    // Make a POST request to your Django backend
     fetch('/service/detect', {
         method: 'POST',
         headers: {
@@ -12,12 +30,19 @@ function sendRequest() {
     })
     .then(response => response.json())
     .then(data => {
-        // Display appropriate div based on response
+        // Prepare the correct url check results to display
+        let resultClass;
+        let resultLine;
         if (data.safe) {
-            document.getElementById("result").innerHTML = '<div class="green-box"></div>';
+            resultClass = "result--safe";
+            resultLine = "This is a safe url! :)";
         } else {
-            document.getElementById("result").innerHTML = '<div class="red-box"></div>';
+            resultClass = "result--phishing";
+            resultLine = "This is a phishing url! :(";
         }
+
+        // Update the url check results
+        document.getElementById("app__result").innerHTML = `<h3 class="${resultClass}">${resultLine}</h3>`;
     })
     .catch(error => {
         console.error('Error:', error);

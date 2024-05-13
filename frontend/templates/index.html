@@ -11,10 +11,15 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
 </head>
 <body>
-    <label for="inputURL">URL:</label>
-    <input type="text" id="inputURL">
-    <button onclick="sendRequest()">Submit</button>
-    <div id="result"></div>
+    <div class="app">
+        <h1 id="app__header">URL Phishing Detection</h1>
+        <div class="app__check">
+            <label for="inputURL">To check url:</label>
+            <input id="inputURL" type="text">
+            <button class="check__submit" onclick="sendRequest()">Submit</button>
+        </div>
+        <div id="app__result"></div>
+    </div>
 
     <script>window.CSRF_TOKEN = "{{ csrf_token }}";</script>
     <script type="application/javascript" src="{% static "js/script.js" %}"></script>
