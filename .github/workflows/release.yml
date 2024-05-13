@@ -15,8 +15,8 @@ jobs:
         uses: SpicyPizza/create-envfile@v2.0
         with:
           envkey_API_KEY: ${{ secrets.API_KEY }}
-          envkey_DEBUG: True
           envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          envkey_DEBUG: True
           envkey_ALLOWED_HOSTS: ".localhost, 127.0.0.1, 0.0.0.0"
           file_name: .env
           fail_on_empty: true

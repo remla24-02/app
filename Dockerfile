@@ -10,3 +10,5 @@ COPY . /app
 
 # To fix a Django install bug
 ENV PYTHONUNBUFFERED=1
+
+EXPOSE 8000
