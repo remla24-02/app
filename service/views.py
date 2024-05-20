@@ -1,10 +1,13 @@
 import json
 
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from decouple import config
 from lib_version_remla24_team02 import VersionUtil
+from prometheus_client import Counter, generate_latest
+
 import requests
 
+request_count = Counter('request_count', 'Total number of requests')
 
 def version(request):
     return JsonResponse({'version': f"v{VersionUtil.get_version()}"})
@@ -12,6 +15,8 @@ def version(request):
 
 def detect(request):
     if request.method == 'POST':
+        request_count.inc()
+
         # Get the url from the frontend request
         body = json.loads(request.body.decode('utf-8'))
         url = body.get('url')
@@ -24,3 +29,6 @@ def detect(request):
         # Convert the prediction into a safe vs phishing detection
         safe = prediction == 0
         return JsonResponse({'safe': safe})
+
+def metrics(request):
+    return HttpResponse(generate_latest(), content_type='text/plain')
