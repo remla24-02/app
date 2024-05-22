@@ -46,9 +46,9 @@ function sendRequest() {
             <h3 class="${resultClass}">${resultLine}</h3>
             <div id="feedback-section">
                 <label>Was this prediction correct?</label>
-                <button onclick="sendFeedback('${inputURL}', 'correct')">Correct</button>
-                <button onclick="sendFeedback('${inputURL}', 'incorrect')">Incorrect</button>
-                <button onclick="sendFeedback('${inputURL}', 'unknown')">Unknown</button>
+                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'correct')">Correct</button>
+                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'incorrect')">Incorrect</button>
+                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'unknown')">Unknown</button>
             </div>`;
     })
     .catch(error => {
