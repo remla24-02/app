@@ -16,9 +16,9 @@
         <div class="app__check">
             <label for="inputURL">To check url:</label>
             <input id="inputURL" type="text">
-            <button class="check__submit" onclick="sendRequest()">Submit</button>
+            <button class="submit-buttons" onclick="sendRequest()">Submit</button>
         </div>
-        <div id="app__result"></div>
+        <div id="app__result" class="app__result"></div>
     </div>
 
     <script>window.CSRF_TOKEN = "{{ csrf_token }}";</script>

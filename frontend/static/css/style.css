@@ -23,7 +23,14 @@ html, body, .app {
     gap: 0.25rem;
 }
 
-.check__submit {
+.app__result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.submit-buttons {
     padding: 2px;
 }
 

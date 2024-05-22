@@ -42,7 +42,32 @@ function sendRequest() {
         }
 
         // Update the url check results
-        document.getElementById("app__result").innerHTML = `<h3 class="${resultClass}">${resultLine}</h3>`;
+        document.getElementById("app__result").innerHTML = `
+            <h3 class="${resultClass}">${resultLine}</h3>
+            <div id="feedback-section">
+                <label>Was this prediction correct?</label>
+                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'correct')">Correct</button>
+                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'incorrect')">Incorrect</button>
+                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'unknown')">Unknown</button>
+            </div>`;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function sendFeedback(url, feedback) {
+    fetch('/service/feedback', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': window.CSRF_TOKEN
+        },
+        body: JSON.stringify({ url: url, feedback: feedback }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("feedback-section").innerHTML = `<p>Thank you for your help!</p>`;
     })
     .catch(error => {
         console.error('Error:', error);
