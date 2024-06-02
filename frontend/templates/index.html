@@ -8,15 +8,19 @@
     <link rel="icon" href="{% static "images/favicon.ico" %}">
     <title>URL Phishing Detection</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>
 </head>
 <body>
     <div class="app">
-        <h1 id="app__header">URL Phishing Detection</h1>
+        <h1 id="app__header" class="app__header">URL Phishing Detection</h1>
+        <span id="app__version" class="app__version"></span>
         <div class="app__check">
-            <label for="inputURL">To check url:</label>
-            <input id="inputURL" type="text">
-            <button class="submit-buttons" onclick="sendRequest()">Submit</button>
+            <label for="inputURL">Enter the url to check below:</label>
+            <div class="app__check--input">
+                <input id="inputURL" type="text" placeholder="https://suspicious-url.com">
+                <button class="submit-buttons" onclick="sendRequest()">Check</button>
+            </div>
         </div>
         <div id="app__result" class="app__result"></div>
     </div>

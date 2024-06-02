@@ -3,7 +3,7 @@ fetch('/service/version')
 .then(response => response.json())
 .then(data => {
     // Update the <h1> element with the received data
-    document.getElementById('app__header').textContent = 'URL Phishing Detection ' + data.version;
+    document.getElementById('app__version').textContent = data.version;
 })
 .catch(error => {
     console.error('Error:', error);
@@ -44,11 +44,17 @@ function sendRequest() {
         // Update the url check results
         document.getElementById("app__result").innerHTML = `
             <h3 class="${resultClass}">${resultLine}</h3>
-            <div id="feedback-section">
-                <label>Was this prediction correct?</label>
-                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'correct')">Correct</button>
-                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'incorrect')">Incorrect</button>
-                <button class="submit-buttons" onclick="sendFeedback('${inputURL}', 'unknown')">Unknown</button>
+            <span>With your feedback we can improve our model!</span>
+            <div id="result__feedback" class="result__feedback">
+                <span>Was this prediction correct?</span>
+                <div class="result__feedback--buttons">
+                    <button class="submit-buttons correct-button" 
+                        onclick="sendFeedback('${inputURL}', 'correct')">Correct</button>
+                    <button class="submit-buttons incorrect-button" 
+                        onclick="sendFeedback('${inputURL}', 'incorrect')">Incorrect</button>
+                    <button class="submit-buttons unknown-button" 
+                        onclick="sendFeedback('${inputURL}', 'unknown')">Unknown</button>
+                </div>
             </div>`;
     })
     .catch(error => {
@@ -67,7 +73,8 @@ function sendFeedback(url, feedback) {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById("feedback-section").innerHTML = `<p>Thank you for your help!</p>`;
+        document.getElementById("result__feedback").innerHTML =
+            `<p>Thank you for your help! (Reported ${feedback})</p>`;
     })
     .catch(error => {
         console.error('Error:', error);

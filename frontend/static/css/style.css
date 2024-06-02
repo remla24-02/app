@@ -7,6 +7,7 @@
 html, body, .app {
     width: 100%;
     height: 100%;
+    font-family: Roboto, serif;
 }
 
 .app {
@@ -17,21 +18,62 @@ html, body, .app {
     gap: 1rem;
 }
 
+.app__header {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    color: #000040;
+}
+
+.app__version {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: gray;
+}
+
 .app__check {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.app__check--input {
+    display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 0.25rem;
+}
+
+.app__check > label {
+    font-size: 1.1rem;
+}
+
+.app__check--input > input {
+    min-width: 130%;
+    height: 1.4rem;
+    padding: 2px;
+    font-size: 1rem;
 }
 
 .app__result {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
 }
 
 .submit-buttons {
-    padding: 2px;
+    padding: 2px 4px;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #000040;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.result--safe, .result--phishing {
+    margin-bottom: 1.5rem;
 }
 
 .result--safe {
@@ -40,4 +82,30 @@ html, body, .app {
 
 .result--phishing {
     color: red;
+}
+
+.result__feedback {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.result__feedback--buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.correct-button {
+    background: #90ee90;
+}
+
+.incorrect-button {
+    background: #ee9090;
+}
+
+.unknown-button {
+    background: #9090ee;
 }
