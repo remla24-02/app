@@ -21,6 +21,6 @@ from service import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('service/', include('service.urls')),
-    path('metrics', views.metrics, name='metrics'),
+    path('stats/prometheus/', views.metrics, name='metrics'),
     path('', include('frontend.urls')),
 ]
